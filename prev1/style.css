@@ -1,0 +1,933 @@
+#border {
+    background-color: #e6e6ff; 
+    padding: 60px;
+    border: 4px solid black;
+    margin: 20px;
+    height: 400px;
+}
+
+#nav-wrapper{
+    position: absolute;
+    top: 35%;
+    right:0px;
+    left: 15%;
+    height:0px;
+    text-align: center;
+}
+
+.botao{
+	position: relative;
+	background-color: #4CAF50;
+    margin: 0 20px;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+
+.botao:hover{
+    background-color: #66cc66;
+}
+
+  
+
+#funcionalidade{
+    position: absolute;
+    background-color: #adad85;
+    display: none;
+    border: none;
+    color: white;
+    padding: 25px 32px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+#funcionalidadediv{
+    position: absolute;
+    top: 50%;
+    right:0px;
+    left: 40%;
+    height:0px;
+    text-align: center;
+}
+    
+
+
+#barista{
+    text-align: center;
+    position: absolute;
+    top: 6%;
+    right:0px;
+    left: 0%;
+    height:0px;
+}
+
+.dados{
+   
+    position: absolute;
+    top: 6%;
+    right:0px;
+    left: 75%;
+    height:0px;
+}
+
+#historico{
+
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    right:0px;
+    left: 35%;
+    height:0px;
+    width: 30%;
+}
+
+#historico, tr, td{
+    
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+
+
+#menulateralcomida{
+    display: none;
+}
+
+#menulateralcomida ul{
+    display: block;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #e6e6ff;
+    top: 20%;
+
+}
+
+#menulateralcomida li a{
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid black;
+    color: #000;
+    padding: 8px 0 50px 16px;
+    text-decoration: none;
+
+}
+
+#menulateralcomida li a:hover{
+    background-color: #555;
+    color: white;
+}
+
+
+#menulateralbebida{
+    display: none;
+}
+
+#menulateralbebida ul{
+    display: block;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #e6e6ff;
+    top: 20%;
+
+}
+
+#menulateralbebida li a{
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid black;
+    color: #000;
+    padding: 8px 0 50px 16px;
+    text-decoration: none;
+
+}
+
+#menulateralbebida li a:hover{
+    background-color: #555;
+    color: white;
+}
+
+
+
+
+.botao3{
+  
+    top: 30%;
+    position: relative;
+    background-color: #4CAF50;
+    margin: 0 35px;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.botao3:hover{
+    background-color: #66cc66;
+  
+}
+
+#fechar{
+    position: absolute;
+    top: 0%;
+    text-align: center;
+    right: 0%;
+}
+
+
+
+
+#bebidasemalcool{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+#titulobebida{
+    text-align: center;
+    position: absolute;
+    top: -4%;
+    right:0%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+}
+
+
+#fotoagua{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+
+.itemdescricao{
+    margin-top: 0;
+}
+
+
+#fotocola{
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    left: 35%;
+}
+#fotoicetea{
+    text-align: center;
+    position: absolute;
+    top: 13%;
+    right: 0%;
+    left: 65%;
+}
+#fotolaranja{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 5%;
+}
+#fotopedras{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 35%;
+}
+#fotocompal{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 65%;
+}
+
+#bebidacomalcool{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotocerveja{
+    text-align: center;
+    position: absolute;
+    top: 12%;
+    right: 0%;
+    left: 5%;
+}
+
+#fotoimperial{
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    left: 35%;
+}
+
+#fotomartini{
+    text-align: center;
+    position: absolute;
+    top: 12%;
+    right: 0%;
+    left: 65%;
+}
+
+#fotogin{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 5%;
+}
+#fotovodka{
+    text-align: center;
+    position: absolute;
+    top: 54%;
+    right: 0%;
+    left: 35%;
+}
+#fotowhisky{
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    right: 0%;
+    left: 65%;
+}
+#cafetaria{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotocafe{
+    text-align: center;
+    position: absolute;
+    top: 11%;
+    right: 0%;
+    left: 5%;
+}
+
+#fotoleite{
+    text-align: center;
+    position: absolute;
+    top: 9%;
+    right: 0%;
+    left: 35%;
+}
+#fotogalao{
+    text-align: center;
+    position: absolute;
+    top: 9%;
+    right: 0%;
+    left: 65%;
+}
+#fotocapp{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 5%;
+}
+#fotochoco{
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    left: 35%;
+}
+#cocktail{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotomojito{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 0%;
+}
+#fotomarg{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fotolong{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 65%;
+}
+#fotocaip{
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    left: 5%;
+}
+
+#aperitivos{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotoamend{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fototre{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#sandes{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotopres{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fototosta{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#fototorrada{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 65%;
+}
+#fotosandes{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    left: 5%;
+}
+#snack{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+#fotokinder{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fotokikat{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#fotolays{
+    text-align: center;
+    position: absolute;
+    top: 7%;
+    right: 0%;
+    left: 65%;
+}
+
+/* ------------------- MENU  -------------------*/
+
+#botaoempregado{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 26%;
+}
+
+#botaodadosdeconta{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 36%;    
+}
+
+#botaopedido{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 46%;    
+}
+
+#botaoajuda{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 56%;    
+}
+
+#botaosair{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 66%;    
+}
+
+#botaohistorico2{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 36%;    
+}
+
+#botaofavoritos{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 20%;
+    left: 28%;   
+}
+
+#botaolimite{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 5%;
+    left: 44%;  
+}
+
+#botaocomida{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 50%;  
+}
+
+#botaobebida{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 42%;  
+}
+
+#botaolimpar{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 22%;  
+}
+
+#botaofalar{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 30%;  
+}
+
+/* ------------------- COLOR -------------------*/
+#botaoempregadocor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 26%;
+}
+
+#botaodadosdecontacor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 36%;    
+}
+
+#botaopedidocor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 46%;    
+}
+
+#botaoajudacor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 56%;    
+}
+
+#botaosaircor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 66%;    
+}
+
+#pedido{
+
+    text-align: left;
+    position: absolute;
+    top: 40%;
+    right:0px;
+    left: 73%;
+    height:0px;
+    width: 28%;
+}
+
+#tabelapedido{
+
+    text-align: center;
+    width: 70%;
+}
+
+
+#limpar{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+#limparok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+}
+
+#falarok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+
+}
+
+
+#falar{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+
+#limite{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+#horas{
+    top: 5%;
+    position: absolute;
+    left: 5%;
+}
+
+
+#circlemais50{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top:40%;
+
+}
+
+#circlemenos50{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+
+}
+
+#circlemais10{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 60%;
+
+}
+
+#circlemenos10{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+
+}
+
+#circlemais1{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 80%;
+
+}
+
+#circlemenos1{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 80%;
+    left: 30%;
+
+}
+
+#limiteok{
+    text-align: center;
+    position: absolute;
+    top: 65%;
+    left: 60%;
+    right: 0%;
+}
+
+#limitenaook{
+    text-align: center;
+    position: absolute;
+    top: 65%;
+    left: 20%;
+    right: 0%;
+}
+
+#limitetexto{
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 65%;
+}
+
+#favoritos{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+#tabelafavoritos{
+    position: absolute;
+    text-align: center;
+    right: 0%;
+    left: 25%;
+}
+
+
+#table{
+    top: 10%;
+    border-radius: 20px;
+    display: none;
+    background-color: #e6e6ff; 
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 27%;
+}
+
+
+#historico{
+    position: absolute;
+    text-align: center;
+    right: 0%;
+    left: 25%;
+}

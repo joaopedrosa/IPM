@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<html>
+<head>
+<title>IPM</title>
+<link rel="stylesheet" href="styleindex.css">
+
+
+<script type="text/javascript">
+
+function checkTime(i) {
+            if (i < 10) i = "0" + i;
+            return i;
+}
+
+function time() {
+
+    var d = new Date(),
+    h = d.getHours(),
+    m = d.getMinutes(),
+
+    m = checkTime(m);
+
+    document.getElementById("time").innerHTML = h + ":" + m;
+
+ }
+
+window.onload = time;
+
+</script>
+
+</head>
+<body style='font-family:"verdana"; font-size: 16px'>
+
+<div id="border">
+
+	<div id="colorstrip">
+	</div>
+
+
+	<div id="barista1" style="z-index: 10">	
+    	<img src="icons/barista.png" alt="bar" height="90px" width="80px" >	
+	</div>
+
+	<div id="barista2" style="z-index: 10">
+		<img src="icons/barista2.png">
+	</div>	
+
+	<div id="horas">
+			<h2 id="time">Horas:</h2>
+			<p><time datetime="YYYY-MM-DDThh:mm:ssTZD"></time></p>
+	</div>	
+
+	<div id="botaoajuda" style="height: 90px;width: 100px; z-index: 10">
+		<a onclick="ajuda()">
+			<img src="icons/signs.png" height="45px" width="45px">
+		</a>
+		<p class="itemdescricao">Ajuda</p>
+	</div>	
+
+
+	<div id="botaosignin" style="height: 90px;width: 100px;">
+		<a onclick="signin()">
+			<img src="icons/sign in.png">
+		</a>
+		<p class="itemdescricao">Criar uma conta</p>
+	</div>	
+
+
+	<div id="botaologin" style="height: 90px;width: 100px;">
+		<a onclick="login()">
+			<img src="icons/log in.png">
+		</a>
+		<p class="itemdescricao">Entrar na conta</p>
+	</div>	
+
+	<div id="botaoanonimo" style="height: 90px;width: 100px;">
+		<a href="menuprincipal.html">
+			<img src="icons/anonimo.png">
+		</a>
+		<p class="itemdescricao">Entrar como anónimo</p>
+	</div>				
+
+
+
+	<div id="ajuda" style="z-index: 10000">
+		<div id="titulobebida">
+			<h3>Ajuda</h3>
+		</div>	
+		
+		<h4>Caso não tenha uma conta e queira criar uma clique na opção "Criar uma conta".</h4>
+		<h4>Caso queira entrar na sua conta clique na opção "Entrar na conta".</h4>
+		<h4>Caso queira entrar como anónimo clique na ultima opção.</h4>
+		<a id="ajudaok"  onclick="fechalimpar()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+
+	<div id="notsignin">
+    	<i class="fa fa-info-circle"></i>
+    	Funcionalidade não implementada.
+	</div>
+
+
+	<div id="notlogin">
+    	<i class="fa fa-info-circle"></i>
+    	Funcionalidade não implementada.
+	</div>	
+
+
+
+
+
+</body>
+
+<script type="text/javascript">
+	
+function ajuda(){
+	document.getElementById("ajuda").style.display='block';
+}
+
+
+function fechalimpar(){
+	document.getElementById("ajuda").style.display='none';
+}
+
+
+function signin(){
+	document.getElementById("notsignin").style.display='block';
+}
+
+function login(){
+	document.getElementById("notlogin").style.display='block';
+}
+
+</script>
+
+
+</html>

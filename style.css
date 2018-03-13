@@ -1,0 +1,1924 @@
+#border {
+    background-color: #e3e3e3; 
+    padding: 60px;
+    border: 4px solid black;
+    margin: 20px;
+    height: 620px;
+}
+
+#editarbotao{
+  background-color: #c9c9c9;
+  font-weight: bold;
+  border: 2px solid black;
+}
+
+#editarbotao:hover{
+  background-color: #4597ba;
+  font-weight: bold;
+  color: white;
+}
+
+
+#editarbotao2{
+  background-color: #e3e3e3;
+  border: 2px solid black;
+  font-weight: bold;
+}
+
+#editarbotao2:hover{
+  background-color: #4597ba;
+  color: white;
+  font-weight: bold;
+}
+
+#finalizar{
+  background-color: #c9c9c9;
+  font-size: 15px;
+  font-weight: bold;
+  border: 2px solid black;
+  
+}
+
+
+
+#colorstrip{
+    position: absolute;
+    width: 96.5%;
+    right: 1.8%;
+    top: 2.8%;
+    height: 95px;
+
+    background-color: #c9c9c9;
+
+}
+
+
+#nav-wrapper{
+    position: absolute;
+    top: 35%;
+    right:0px;
+    left: 15%;
+    height:0px;
+    text-align: center;
+}
+
+.botao{
+	position: relative;
+	background-color: #4CAF50;
+    margin: 0 20px;
+    border: none;
+    color: white;
+    padding: 15px 30px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+    border-radius: 10%;
+}
+
+
+.botao:hover{
+    background-color: #66cc66;
+}
+
+  
+
+#funcionalidade{
+    position: absolute;
+    background-color: #adad85;
+    display: none;
+    border: none;
+    color: white;
+    padding: 25px 32px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+
+}
+
+#funcionalidadediv{
+    position: absolute;
+    top: 50%;
+    right:0px;
+    left: 40%;
+    height:0px;
+    text-align: center;
+}
+    
+
+
+#barista1{
+    text-align: center;
+    position: absolute;
+    top: 3%;
+    right:0%;
+    left: 0%;
+
+}
+
+#barista2{
+    text-align: center;
+    position: absolute;
+    top: 12%;
+    right:0%;
+    left: 0%;
+ 
+}
+
+.dados{
+   
+    position: absolute;
+    top: 15%;
+    right:0px;
+    left: 75%;
+    height:0px;
+}
+
+
+
+#historico{
+
+    text-align: center;
+    position: absolute;
+    top: 20%;
+    right:0px;
+    left: 35%;
+    height:0px;
+    width: 80%;
+}
+
+#historico, td{
+    
+    text-align: left;
+    font-weight: bold;
+    border: 1px solid black;
+
+}
+
+#historico, tr{
+    
+    text-align: center;
+    border: 1px solid black;
+
+}
+
+
+
+#menulateralcomida{
+    display: none;
+}
+
+#menulateralcomida ul{
+    display: block;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #e3e3e3;
+    top: 30%;
+    left: 15%;
+
+}
+
+#menulateralcomida li a{
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid black;
+    color: #000;
+    padding: 8px 0 50px 16px;
+    text-decoration: none;
+
+}
+
+#menulateralcomida li a:hover{
+    background-color: #555;
+    color: white;
+}
+
+
+#menulateralbebida{
+    display: none;
+}
+
+#menulateralbebida ul{
+    display: block;
+    position: absolute;
+    list-style-type: none;
+    border: 1px solid black;
+    margin: 0;
+    padding: 0;
+    width: 200px;
+    background-color: #e3e3e3;
+    top: 25%;
+    left: 15%;
+
+}
+
+#menulateralbebida li a{
+    display: block;
+    padding: 15px 20px;
+    border: 1px solid black;
+    color: #000;
+    padding: 8px 0 50px 16px;
+    text-decoration: none;
+
+}
+
+#menulateralbebida li a:hover{
+    background-color: #555;
+    color: white;
+}
+
+
+
+
+.botao3{
+  
+    top: 30%;
+    position: relative;
+    background-color: #4CAF50;
+    margin: 0 35px;
+    border: none;
+    color: white;
+    padding: 15px 10px;
+    float: left;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+}
+
+.botao3:hover{
+    background-color: #66cc66;
+  
+}
+
+#fechar{
+    position: absolute;
+    top: 0%;
+    text-align: center;
+    right: 0%;
+}
+
+
+
+
+#bebidasemalcool{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 190px;
+    width: 30%;
+    left: 29%;
+}
+
+#titulobebida{
+    text-align: center;
+    position: absolute;
+    top: -4%;
+    right:0%;
+    left: 0%;
+    width: 100%;
+    height: 10%;
+}
+
+
+#fotoagua{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+
+.itemdescricao{
+    margin-top: 0;
+}
+
+
+#fotocola{
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    left: 35%;
+}
+#fotoicetea{
+    text-align: center;
+    position: absolute;
+    top: 13%;
+    right: 0%;
+    left: 65%;
+}
+#fotolaranja{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 5%;
+}
+#fotopedras{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 35%;
+}
+#fotocompal{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 65%;
+}
+
+#bebidacomalcool{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotocerveja{
+    text-align: center;
+    position: absolute;
+    top: 12%;
+    right: 0%;
+    left: 5%;
+}
+
+#fotoimperial{
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    left: 35%;
+}
+
+#fotomartini{
+    text-align: center;
+    position: absolute;
+    top: 12%;
+    right: 0%;
+    left: 65%;
+}
+
+#fotogin{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 5%;
+}
+#fotovodka{
+    text-align: center;
+    position: absolute;
+    top: 54%;
+    right: 0%;
+    left: 35%;
+}
+#fotowhisky{
+    text-align: center;
+    position: absolute;
+    top: 60%;
+    right: 0%;
+    left: 72%;
+}
+#cafetaria{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotocafe{
+    text-align: center;
+    position: absolute;
+    top: 11%;
+    right: 0%;
+    left: 5%;
+}
+
+#fotoleite{
+    text-align: center;
+    position: absolute;
+    top: 9%;
+    right: 0%;
+    left: 35%;
+}
+#fotogalao{
+    text-align: center;
+    position: absolute;
+    top: 9%;
+    right: 0%;
+    left: 65%;
+}
+#fotocapp{
+    text-align: center;
+    position: absolute;
+    top: 58%;
+    right: 0%;
+    left: 5%;
+}
+#fotochoco{
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    left: 35%;
+}
+#cocktail{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotomojito{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 46%;
+    
+}
+#fotomarg{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fotolong{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 65%;
+}
+#fotocaip{
+    text-align: center;
+    position: absolute;
+    top: 55%;
+    right: 0%;
+    left: 5%;
+}
+
+#aperitivos{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotoamend{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fototre{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#sandes{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotopres{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fototosta{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#fototorrada{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 65%;
+}
+#fotosandes{
+    text-align: center;
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    left: 5%;
+}
+#snack{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#fotokinder{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 5%;
+}
+#fotokikat{
+    text-align: center;
+    position: absolute;
+    top: 10%;
+    right: 0%;
+    left: 35%;
+}
+#fotolays{
+    text-align: center;
+    position: absolute;
+    top: 7%;
+    right: 0%;
+    left: 65%;
+}
+
+#botaopagamento{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 25%;
+    right: 0%;
+    left: 84%;
+}
+
+#modopagamento{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    background-color: #e3e3e3; 
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#pagamentofinal{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    background-color: #e3e3e3; 
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#pagaok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+}
+
+
+#multibanco{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 35%;
+}
+
+#dinheiro{
+    position: absolute;
+    text-align: center;
+    top: 50%;
+    left: 55%;
+}
+
+/* ------------------- MENU  -------------------*/
+
+#botaoempregado{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 31%;
+}
+
+#botaodadosdeconta{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 41%;    
+}
+
+#botaopedido{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 51%;    
+}
+
+#botaoajuda{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 5%;
+    right: 0%;
+    left: 93%;    
+}
+
+#botaosair{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 61%;    
+}
+
+#botaohistorico2{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 41%;    
+}
+
+#botaofavoritos{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 20%;
+    left: 33%;   
+}
+
+#botaolimite{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 5%;
+    left: 49%;  
+}
+
+#botaocomida{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 55%;  
+}
+
+#botaobebida{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 47%;  
+}
+
+#botaolimpar{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 27%;  
+}
+
+#botaofalar{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    right: 0%;
+    left: 35%;  
+}
+
+/* ------------------- COLOR -------------------*/
+#botaoempregadocor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 31%;
+}
+
+#botaodadosdecontacor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 41%;    
+}
+
+#botaopedidocor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 51%;    
+}
+
+#botaoajudacor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 56%;    
+}
+
+#botaosaircor{
+    display: none;
+    text-align: center;
+    position: absolute;
+    top: 70%;
+    right: 0%;
+    left: 61%;    
+}
+
+#podesair{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    background-color: #e3e3e3;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#naopodesair{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    background-color: #e3e3e3;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+
+
+#limpar{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#limparok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+}
+
+#naopodesairok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+}
+
+#falarok{
+    text-align: center;
+    position: absolute;
+    top: 57%;
+    left: 45%;
+    right: 0%;
+
+}
+
+
+#falar{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    background-color: #e3e3e3;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+
+#limite{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#horas{
+    top: 5%;
+    position: absolute;
+    left: 5%;
+}
+
+
+#circlemais50{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top:40%;
+
+}
+
+#circlemenos50{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    left: 30%;
+    top: 40%;
+
+}
+
+#circlemais10{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 60%;
+
+}
+
+#circlemenos10{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 60%;
+    left: 30%;
+
+}
+
+#circlemais1{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 80%;
+
+}
+
+#circlemenos1{
+    width:50px;
+    height:50px;
+    border-radius:25px;
+    font-size:20px;
+    color:#fff;
+    line-height:50px;
+    text-align:center;
+    background:#000;
+    position: absolute;
+    top: 80%;
+    left: 30%;
+
+}
+
+#limiteok{
+    text-align: center;
+    position: absolute;
+    top: 65%;
+    left: 67%;
+    right: 0%;
+}
+
+
+#limitetexto{
+    position: absolute;
+    text-align: center;
+    top: 40%;
+    left: 65%;
+}
+
+#favoritos{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+ 
+    margin: 50px;
+    height: 185px;
+    width: 30%;
+    left: 29%;
+}
+
+
+#confirmalimite{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    background-color: #e3e3e3; 
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+
+#simlimite{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 30%;  
+}
+
+
+#naolimite{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 60%;  
+}
+
+
+#simpedido{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 30%;  
+}
+
+#simsai{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 30%;  
+}
+
+
+#naopedido{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 60%;  
+}
+
+
+#naosai{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 52%;
+    right: 0%;
+    left: 60%;  
+}
+
+
+#tabelafavoritos{
+    position: relative;
+    text-align: center;
+    right: 0%;
+    left: 0%;
+    top: -10%;
+}
+
+
+#table{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+   
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 22%;
+}
+
+
+#historico{
+    position: absolute;
+    text-align: center;
+    top: 10%;
+    right: 0%;
+    left: 30%;
+}
+
+#pedido{
+
+    text-align: left;
+    position: absolute;
+    top: 56.1%;
+    right:0px;
+    left: 72.6%;
+    height:0px;
+    width: 37%;
+
+}
+
+#tabelapedido{
+
+    text-align: left;
+    width: 70%;
+    background-color: #c9c9c9;
+}
+
+#detalhes{
+
+    display: none;   
+    text-align: left;
+    position: absolute;
+    top: 25%;
+    right:0px;
+    left: 37%;
+    height:0px;
+    width: 37%;
+}
+
+#tabeladetalhes{
+
+    text-align: left;
+    width: 70%;
+}
+
+table.scroll {
+     width: 100%;  /* Optional */
+     border-collapse: collapse; 
+    border-spacing: 0;
+    border: 2px solid black;
+}
+
+table.scroll tbody,
+table.scroll thead { display: block; }
+
+thead tr th { 
+    height: 30px;
+    line-height: 30px;
+    /* text-align: left; */
+}
+
+table.scroll tbody {
+    height: 200px;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+
+tbody { border-top: 2px solid black; }
+
+tbody td, thead th {
+    width: 20%;  /* Optional */
+    border-right: 1px solid black;
+    /* white-space: nowrap; */
+}
+
+tbody td:last-child, thead th:last-child {
+    border-right: none;
+}
+
+tr.noBorder td {border: 0; }
+
+
+
+
+
+
+
+
+
+
+#closelimite{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+
+#confirmapedido{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    background-color: #e3e3e3; 
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#confirmapedidolimite{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    background-color: #e3e3e3; 
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+
+
+#closebebidasem{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+#closemodopagamento{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+
+#closebebidacom{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+#closecafetaria{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+#closecock{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+#closeaperitivos{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+#closesandes{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+
+#closesnack{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%;  
+
+}
+
+#ajudaprincipal{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#ajudaprincok{
+    position: absolute;
+    text-align: center;
+    right: 0%;
+    left: 45%;
+    top: 60%;
+}
+#ajudapedido{
+    top: 20%;
+    border-radius: 20px;
+    background-color: #e3e3e3; 
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#ajudafav{
+    top: 20%;
+    border-radius: 20px;
+    background-color: #e3e3e3; 
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#ajudahist{
+    top: 20%;
+    border-radius: 20px;
+    background-color: #e3e3e3; 
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+#ajudalimite{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+
+#closehistorico{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 10.5%;
+    right: 0%;
+    left: 100%; 
+}
+
+#closefavoritos{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 14.5%;
+    right: 0%;
+    left: 80%; 
+}
+
+
+/* -------------- EDIT --------------*/
+
+#cocacolaedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 47%;
+}
+
+#alteracola{
+    top: 20%;
+    background-color: #e3e3e3; 
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#gelocola{
+    height: 30px;
+    width: 30px;
+}
+
+#limaocola{
+    height: 30px;
+    width: 30px;   
+}
+
+#caixagelocola{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 37%;
+}
+
+#caixalimaocola{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 57%;
+}
+
+#confirmacola{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeeditcola{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/* -------------- --------------*/
+
+/*-------------------------------*/
+#cafeedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 42%;
+}
+
+#alteracafe{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    background-color: #e3e3e3; 
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#normalcafe{
+    height: 30px;
+    width: 30px;
+}
+
+#curtocafe{
+    height: 30px;
+    width: 30px;   
+}
+
+#cheiocafe{
+    height: 30px;
+    width: 30px;   
+}
+
+#caixanormalcafe{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 45%;
+}
+
+#caixacurtocafe{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 25%;
+}
+
+#caixacheiocafe{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 65%;
+}
+
+#confirmacafe{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeeditcafe{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/*------------------------------*/
+#iceedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 47%;
+}
+
+#alteraice{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#geloice{
+    height: 30px;
+    width: 30px;   
+}
+
+
+#caixageloice{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 47%;
+}
+
+#confirmaice{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeeditice{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/*------------------------------*/
+#aguaedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 47%;
+}
+
+#alteraagua{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#fresca{
+    height: 30px;
+    width: 30px;   
+}
+#normal{
+    height: 30px;
+    width: 30px;   
+}
+
+
+
+#caixafresca{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 55%;
+}
+#caixanormal{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 35%;
+}
+
+#confirmaagua{
+    position: absolute;
+    top: 40%;
+    left: 500%;
+}
+
+#closeeditagua{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/*------------------------------*/
+#leiteedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 42%;
+}
+
+#alteraleite{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#quente{
+    height: 30px;
+    width: 30px;   
+}
+#frio{
+    height: 30px;
+    width: 30px;   
+}
+
+
+
+#caixaquente{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 55%;
+}
+#caixafrio{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 35%;
+}
+
+#confirmaleite{
+    position: absolute;
+    top: 40%;
+    left: 900%;
+}
+
+#closeeditleite{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/*------------------------------*/
+#mistaedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 37%;
+}
+
+#alteramista{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#manteiga{
+    height: 30px;
+    width: 30px;   
+}
+
+#caixamanteiga{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 42%;
+}
+
+
+#confirmamista{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeeditmista{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+/*------------------------------*/
+#presuntoedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 37%;
+}
+
+#alterapresunto{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    background-color: #e3e3e3; 
+    margin: 50px;
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#manteigap{
+    height: 30px;
+    width: 30px;   
+}
+
+#caixamanteigap{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 42%;
+}
+
+
+#confirmapresunto{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeeditpresunto{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+/*------------------------------*/
+#tostaedit{
+    position: absolute;
+    text-align: center;
+    top: 15%;
+    left: 40%;
+}
+
+#alteratosta{
+    top: 20%;
+    border-radius: 20px;
+    display: none;
+    text-align: center;
+    position: absolute;
+    padding: 60px;
+    border: 1px solid black;
+    margin: 50px;
+    background-color: #e3e3e3; 
+    height: 175px;
+    width: 30%;
+    left: 29%;
+}
+
+#manteigat{
+    height: 30px;
+    width: 30px;   
+}
+
+#caixamanteigat{
+    position: absolute;
+    text-align: center;
+    top: 60%;
+    left: 44%;
+}
+
+
+#confirmatosta{
+    position: absolute;
+    top: 70%;
+    left: 82%;
+}
+
+#closeedittosta{
+    display: block;
+    text-align: center;
+    position: absolute;
+    top: 4%;
+    right: 0%;
+    left: 90%; 
+}
+
+/* -------------- --------------*/

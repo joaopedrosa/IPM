@@ -1,0 +1,2903 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<html>
+
+<head>
+
+<script type="text/javascript">
+
+function checkTime(i) {
+            if (i < 10) i = "0" + i;
+            return i;
+}
+
+function time() {
+
+    var d = new Date(),
+    h = d.getHours(),
+    m = d.getMinutes(),
+
+    m = checkTime(m);
+
+    document.getElementById("time").innerHTML = h + ":" + m;
+
+ }
+
+window.onload = time;
+
+</script>
+</head>
+
+<body style='font-family:"verdana"; font-size: 16px'>
+
+<title>BarISTa</title>
+<link rel="stylesheet" href="style.css">
+
+
+<div id="border">
+
+	<div id="barista1" style="z-index: 10">	
+    	<img src="icons/barista.png" alt="bar" height="90px" width="80px" >	
+	</div>
+
+	<div id="barista2" style="z-index: 10">
+		<img src="icons/barista2.png">
+	</div>
+
+	<div id="colorstrip">
+	</div>
+
+
+
+	<div class="dados">
+		<p><b>Utilizador: Anónimo</b></p>
+		<p><b>Mesa: 4</b></p>
+		
+		<p id="despesavar"><b>Despesa:</b></p>
+		<p id="limitevar"><b>Limite:</b></p>
+		<p id="verdetalhes"><input id="editarbotao2" type="button" value ="Ver Detalhes" style="" onClick="Javacsript:apareceDetalhes()"></td>
+
+
+	</div>
+
+
+	<div id="botaopagamento" style="height: 90px;width: 100px;" >
+		<a onclick="pagamento()">
+			<img src="icons/business.png">
+		</a>
+		<p class="itemdescricao">Pagamento</p>
+	</div>
+
+
+
+	<div id="modopagamento" style="z-index: 100000">
+		<div id="titulobebida">
+			<h3>Modo de Pagamento</h3>
+		</div>	
+
+		<div id="closemodopagamento"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closemodopagamento()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>			
+		
+		<h4>Qual o modo de pagamento que prefere?</h4>
+
+		<div id="multibanco" style="height: 90px;width: 100px;" >
+			<a onclick="paga()">
+				<img src="icons/multibanco.png">
+			</a>
+			<p class="itemdescricao">Multibanco</p>
+		</div>
+
+		<div id="dinheiro" style="height: 90px;width: 100px;" >
+			<a onclick="paga()">
+				<img src="icons/dinheiro.png">
+			</a>
+			<p class="itemdescricao">Dinheiro</p>
+		</div>		
+	</div>
+
+
+	<div id="pagamentofinal" style="z-index: 10000000">
+		<div id="titulobebida">
+			<h3>Pagamento</h3>
+		</div>	
+		
+		<h4>O empregado irá ter consigo para tratar do pagamento.</h4>
+		<a id="pagaok"  onclick="fechapagamentofinal()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+
+
+	<div id="horas">
+			<h2 id="time">Horas:</h2>
+			<p><time datetime="YYYY-MM-DDThh:mm:ssTZD"></time></p>
+	</div>
+
+
+	<div id="pedido">
+	<table id="tabelapedido" class="scroll">
+    <thead>
+        <tr>
+            <th><b style="padding-right: 20px; padding-left: 20px">Pedido Actual</b></th>
+        </tr>
+    </thead>
+	 <tbody>
+	     <tr class="noBorder">
+            <td>&nbsp;</td>
+            <td><b style="padding-right: 20px; padding-left: 20px; text-align: left">Descrição</b></th>
+            <td contenteditable="true"><b>Qtd</b></td>
+            <td><b>Preço</b></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+	    <tr class="noBorder">
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td contenteditable="true" id="NrItemsTab"><b>( )</b></td>
+	    	<td contenteditable="true" id="TotalTab"><b>Total:</b></td>
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td ><input id="finalizar" type="button" value ="Finalizar" style="height: 40px;width: 80px;" onClick="Javacsript:confirmPedido(this)"></td>
+	    </tr>
+	 </tbody>
+	</table>
+	</div>
+
+
+
+	<div id="table">
+
+		<div id="closehistorico"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closehistorico()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+	<table id="historico" class="scroll">
+	    <thead>
+        <tr>
+            <th><b style="padding-right: 20px; padding-left: 20px">Histórico</b></th>
+        </tr>
+    	</thead>
+    	<tbody>
+	    <tr class="noBorder">
+	    	<td>&nbsp;</td>
+	      <td><b style="padding-right: 20px; padding-left: 20px">Produto</b></td>
+	      <td contenteditable="true"><b>Data</b></td>
+	      <td><b>Preço</b></td>
+	    </tr>
+	    <tr class="noBorder">
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td><input type="image" name="limpar" src="icons/delete.png" width="20" height="20" onClick="Javacsript:clearHist(this)"></td>
+	    </tr>
+	    </tbody>
+	</table>
+	</div>
+
+
+	<div id="detalhes">
+	<table id="tabeladetalhes" class="scroll">
+    <thead>
+        <tr class="noBorder">
+            <th><b style="padding-right: 20px; padding-left: 20px">Detalhes</b></th>
+            <th><input type="image" name="fechadetalhes" src="icons/delete (2).png" width="20" height="20" onClick="Javacsript:fechaDetalhes()"></th>
+        </tr>
+    </thead>
+	 <tbody>
+	     <tr class="noBorder">
+            <td>&nbsp;</td>
+            <td><b style="padding-right: 20px; padding-left: 20px">Descrição</b></th>
+            <td contenteditable="true"><b>Qtd</b></td>
+            <td><b>Preço</b></td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+            <td>&nbsp;</td>
+        </tr>
+	    <tr class="noBorder">
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td contenteditable="true" id="NrDetalhes">( )</td>
+	    	<td contenteditable="true" id="totalDetalhes">Total:</td>
+	    	<td>&nbsp;</td>
+	    	<td>&nbsp;</td>
+	    	<td id="finalizarDetalhes"><input type="image" name="confirm" src="icons/business.png" width="20" height="20" onClick=""></td>
+	    </tr>
+	 </tbody>
+	</table>
+	</div>
+
+
+
+	<div id="podesair" style="z-index: 100">
+		<div id="titulobebida">
+			<h3>Sair - Confirmação</h3>
+		</div>	
+		
+		<h4> Tem a certeza que pretende sair? </h4>
+		<a id="simsai" href="index.html" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+		<a id="naosai" onclick="naosai()" style="height: 64px;width: 64px;">
+			<img src="icons/square.png">
+		</a>
+
+		
+	</div>
+
+
+	<div id="naopodesair">
+		<div id="titulobebida">
+			<h3>Sair - Aviso</h3>
+		</div>	
+		
+		<h4>Tem de efetuar o pagamento antes de sair da mesa.</h4>
+		<a id="naopodesairok"  onclick="naopodesairok()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+
+
+
+
+
+	<div id="menulateralcomida">
+		<ul>
+  			<li><b><a onclick="apareceaperitivos()">Aperitivos</a></b></li>
+ 			<li><b><a onclick="aparecesandes()">Sandes e tostas</a></b></li>
+  			<li><b><a onclick="aparecesnacks()">Snacks</a></b></li>
+ 			
+		</ul>	
+	</div>
+
+
+	<div id="menulateralbebida">
+		<ul>
+  			<li><b><a onclick="aparecebebidascom()">Bebida com álcool</a></b></li>
+ 			<li><b><a onclick="aparecebebidasem()">Bebida sem álcool</a></b></li>
+  			<li><b><a onclick="aparececafetaria()">Cafetaria</a></b></li>
+ 			<li><b><a onclick="aparececocktail()">Cocktail's</a></b></li>
+		</ul>	
+	</div>	
+
+
+	<div id="limpar">
+		<div id="titulobebida">
+			<h3>Limpar a mesa</h3>
+		</div>	
+		
+		<h4>O empregado irá limpar a sua mesa assim que possível.</h4>
+		<a id="limparok"  onclick="fechalimpar()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+
+	<div id="falar">
+		<div id="titulobebida">
+			<h3>Falar pessoalmente</h3>
+		</div>	
+		
+		<h4>O empregado irá ter à sua mesa assim que possível.</h4>
+		<a id="falarok" onclick="fechafalar()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+	<div id="confirmapedidolimite" style="z-index: 100">
+		<div id="titulobebida">
+			<h3>Finalizar pedido - Confirmação</h3>
+		</div>	
+		
+		<h4> Se prosseguir irá ultrapassar o limite estabelicido. Deseja Continuar? </h4>
+		<a id="simpedido" onclick="aceitaLimite()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+		<a id="naopedido" onclick="rejeitaLimite()" style="height: 64px;width: 64px;">
+			<img src="icons/square.png">
+		</a>
+
+		
+	</div>
+
+
+	<div id="confirmalimite" style="z-index: 100">
+		<div id="titulobebida">
+			<h3>Finalizar definição de limite - Confirmação</h3>
+		</div>	
+		
+		<h4> Se prosseguir irá definir o seu limite. Deseja Continuar? </h4>
+		<a id="simpedido" onclick="simlimite()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+		<a id="naopedido" onclick="naolimite()" style="height: 64px;width: 64px;">
+			<img src="icons/square.png">
+		</a>
+
+		
+	</div>
+
+	<div id="confirmapedido" style="z-index: 100">
+		<div id="titulobebida">
+			<h3>Finalizar pedido - Confirmação</h3>
+		</div>	
+		
+		<h4> Tem a certeza que deseja finalizar o seu pedido? </h4>
+		<a id="simpedido" onclick="aceitaPedido()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+		<a id="naopedido" onclick="rejeitaPedido()" style="height: 64px;width: 64px;">
+			<img src="icons/square.png">
+		</a>
+
+		
+	</div>
+
+
+
+
+	<div id="limite">
+		<div id="titulobebida">
+			<h3>Limite</h3>
+		</div>	
+
+		<div id="closelimite"  style="height: 32px;width: 32px" >
+			<a onclick="closelimite()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+		
+		<h4>Escolha o limite que quer atribuir à sua despesa.</h4>
+		<a onclick="mais50()">
+			<div id="circlemais50">+50</div>
+		</a>
+		<a onclick="menos50()">
+			<div id="circlemenos50">-50</div>
+		</a>
+		<a onclick="mais10()">
+			<div id="circlemais10">+10</div>
+		</a>
+		<a onclick="menos10()">
+			<div id="circlemenos10">-10</div>
+		</a>
+		<a onclick="mais1()">
+			<div id="circlemais1">+1</div>
+		</a>
+		<a onclick="menos1()">
+			<div id="circlemenos1">-1</div>
+		</a>
+		<div id="limiteok" style="height: 64px;width: 64px;">
+		<a onclick="limiteok()">
+			<img src="icons/circle.png">
+		</a>
+		</div>
+
+		<h3 id="limitetexto"> Limite: </h3>
+
+
+		
+	</div>
+
+
+
+
+	<div id="favoritos">
+
+		<div id="closefavoritos"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closefavoritos()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+
+
+	<table id="tabelafavoritos" class="scroll">
+		<thead>
+        <tr>
+            <th><b style="padding-right: 20px; padding-left: 20px">Favoritos</b></th>
+        </tr>
+    	</thead>
+    	<body>
+	    <tr>
+	    	<td>&nbsp;</td>
+	        <td><b style="padding-right: 20px; padding-left: 20px">Descrição</b></td>
+	        <td><b>Preço</b></td>
+	        <td>&nbsp;</td>
+	    </tr>
+	    </body>
+	</table>
+	</div>
+
+
+
+
+	<div id="alteracola" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Coca-cola</h3>
+		</div>	
+		
+		<div id="closeeditcola"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditcola()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="cocacolaedit">
+			<img  src="items/cocacola.png" width="43" height="115,4">
+		</div>
+
+		<div id="caixagelocola">
+			<input id="gelocola" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Gelo</h4>
+  		</div>
+
+  		<div id="caixalimaocola">
+			<input id="limaocola" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Limão</h4>
+		</div>
+		
+		<a id="confirmacola"  onclick="confirmacola()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+	
+		
+	</div>
+
+
+	</div>
+
+		<div id="alteracafe" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Café</h3>
+		</div>	
+		
+		<div id="closeeditcafe"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditcafe()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="cafeedit">
+			<img  src="items/Coffee.png" width="100" height="70,4">
+		</div>
+
+		<div id="caixanormalcafe">
+			<input id="normalcafe" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Normal</h4>
+  		</div>
+
+  		<div id="caixacheiocafe">
+			<input id="cheiocafe" type="checkbox"  >
+			<h4 style="margin-top: 0px">Cheio</h4>
+		</div>
+		<div id="caixacurtocafe">
+			<input id="curtocafe" type="checkbox"  >
+			<h4 style="margin-top: 0px">Curto</h4>
+		</div>
+		
+		<a id="confirmacafe"  onclick="confirmacafe()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+	
+		
+	</div>
+
+		<div id="alteraice" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Ice Tea</h3>
+		</div>	
+		
+		<div id="closeeditice"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditice()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="iceedit">
+			<img  src="items/icetea.png" width="43" height="90,4">
+		</div>
+
+		<div id="caixageloice">
+			<input id="geloice" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Gelo</h4>
+  		</div>
+
+		
+		<a id="confirmaice"  onclick="confirmaice()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+	
+		
+	</div>
+
+		<div id="alteraagua" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Agua</h3>
+		</div>	
+		
+		<div id="closeeditagua"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditagua()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="aguaedit">
+			<img  src="items/agua.png" width="43" height="100,4">
+		</div>
+
+		<div id="caixafresca">
+			<input id="fresca" type="checkbox" >
+			<h4 style="margin-top: 0px">Fresca</h4>
+  		</div>
+  		<div id="caixanormal">
+			<input id="normal" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Natural</h4>
+
+			<a id="confirmaagua"  onclick="confirmaagua()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+  		</div>
+  	</div>
+
+  		<div id="alteraleite" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Leite</h3>
+		</div>	
+		
+		<div id="closeeditleite"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditleite()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="leiteedit">
+			<img  src="items/milk.png" width="100" height="75,4">
+		</div>
+
+		<div id="caixaquente">
+			<input id="quente" type="checkbox" >
+			<h4 style="margin-top: 0px">Quente</h4>
+  		</div>
+  		<div id="caixafrio">
+			<input id="frio" type="checkbox" checked >
+			<h4 style="margin-top: 0px">Frio</h4>
+			<a id="confirmaleite"  onclick="confirmaleite()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+  		</div>
+  	</div>
+		
+
+	</div>
+
+
+		<div id="alteramista" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Sandes Mista</h3>
+		</div>	
+		
+		<div id="closeeditmista"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditmista()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="mistaedit">
+			<img  src="items/sandes.png" width="140" height="90,4">
+		</div>
+
+		<div id="caixamanteiga">
+			<input id="manteiga" type="checkbox"  >
+			<h4 style="margin-top: 0px">Manteiga</h4>
+  		</div>
+
+		<a id="confirmamista"  onclick="confirmamista()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+	</div>
+
+		<div id="alterapresunto" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Sandes Presunto</h3>
+		</div>	
+		
+		<div id="closeeditpresunto"  style="height: 32px;width: 32px" >
+			<a onclick="closeeditpresunto()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="presuntoedit">
+			<img  src="items/presunto.png" width="140" height="90,4">
+		</div>
+
+		<div id="caixamanteigap">
+			<input id="manteigap" type="checkbox"  >
+			<h4 style="margin-top: 0px">Manteiga</h4>
+  		</div>
+
+		<a id="confirmapresunto"  onclick="confirmapresunto()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+	</div>
+
+	<div id="alteratosta" style="z-index: 1000">
+		<div id="titulobebida">
+			<h3>Modificar - Tosta Mista</h3>
+		</div>	
+		
+		<div id="closeedittosta"  style="height: 32px;width: 32px" >
+			<a onclick="closeedittosta()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+  		<div id="tostaedit">
+			<img  src="items/tosta.png" width="140" height="90,4">
+		</div>
+
+		<div id="caixamanteigat">
+			<input id="manteigat" type="checkbox"  >
+			<h4 style="margin-top: 0px">Manteiga</h4>
+  		</div>
+
+		<a id="confirmatosta"  onclick="confirmatosta()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+	</div>
+
+
+
+
+
+
+
+
+
+
+	<div id="ajudaprincipal" style="z-index: 1000000">
+		<div id="titulobebida">
+		<h3>Ajuda</h3>
+			<h4>Escolha de entre as opções a mais indicada para o que pretende fazer, em caso de dúvida clique em "Empregado" seguido de "Falar Pessoalmente" </h4>
+		</div>	
+		
+		<a id="ajudaprincok"  onclick="fechaajudaprincipal()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+	<div id="ajudapedido" style="z-index: 1000000">
+		<div id="titulobebida">
+		<h3>Ajuda</h3>
+			<h4>Escolha no submenu à sua esquerda a categoria do seu pedido e de seguida escolha do menu que está no centro o produto que deseja. Se desejar personalizar um pedido, carregue no respetivo produto e na tabela de pedidos no canto inferior direito selecione o lápis.</h4>
+		</div>	
+		
+		<a id="ajudaprincok"  onclick="fechaajudapedido()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+	<div id="ajudafav" style="z-index: 1000000">
+		<div id="titulobebida">
+		<h3>Ajuda</h3>
+			<h4>Neste menu estão todos os seus pedidos favoritos, pode remover qualquer produto do mesmo ou adicionar o produto a sua lista de pedidos. </h4>
+		</div>	
+		
+		<a id="ajudaprincok"  onclick="fechaajudafavoritos()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+	<div id="ajudahist" style="z-index: 1000000">
+		<div id="titulobebida">
+		<h3>Ajuda</h3>
+			<h4>Neste menu encontra-se um histórico de todos os produtos que já consumiu, poderá a qualquer momento voltar a pedir algum produto da lista ou adicionar aos seus favoritos</h4>
+		</div>	
+		
+		<a id="ajudaprincok"  onclick="fechaajudahist()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+	<div id="ajudalimite" style="z-index: 1000000">
+		<div id="titulobebida">
+		<h3>Ajuda</h3>
+			<h4>Neste menu poderá adicionar um limite monetário à sua conta, caso tenta ultrapassar esse limite o sistema irá avisá-lo. Use os botões à sua esquerda para estabelecer o seu limite e confirme de seguida</h4>
+		</div>	
+		
+		<a id="ajudaprincok"  onclick="fechaajudalimite()" style="height: 64px;width: 64px;">
+			<img src="icons/circle.png" >
+		</a>
+
+		
+	</div>
+
+
+
+
+
+
+
+	<div id="bebidasemalcool">
+		<div id="titulobebida">
+			<h3>Bebidas sem álcool</h3>
+		</div>
+
+		<div id="closelimite"  style="height: 32px;width: 32px" >
+			<a onclick="closebebidasem()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+		<div id="agua" >
+			<a id="fotoagua" onclick="addPedidoArray(item_agua)" style="height: 150px;width: 150px;">
+				<img src="items/agua.png" width="43" height="100,4">
+				<p class="itemdescricao">Água . . . . . . . 1€</p>
+				
+			</a>
+
+		</div>
+		<div id="cola">
+			<a id="fotocola" onclick="addPedidoArray(item_cola)" style="height: 150px;width: 150px;">
+				<img src="items/cocacola.png" width="43" height="115,4">
+				<p class="itemdescricao">Coca-Cola . . 1,5€</p>
+				
+			</a>
+
+		</div>
+		<div id="icetea">
+			<a id="fotoicetea" onclick="addPedidoArray(item_icetea)" style="height: 150px;width: 150px;">
+				<img src="items/icetea.png" width="43" height="90,4">
+				<p class="itemdescricao">Ice Tea . . . . .1,5€</p>
+				
+			</a>
+
+		</div>
+		<div id="laranja">
+			<a id="fotolaranja" onclick="addPedidoArray(item_laranja)" style="height: 150px;width: 150px;">
+				<img src="items/laranja.png" width="120" height="90,4">
+				<p class="itemdescricao">Sumo de Laranja 1,5€</p>
+				
+			</a>
+
+		</div>
+		<div id="pedras">
+			<a id="fotopedras" onclick="addPedidoArray(item_pedras)" style="height: 150px;width: 150px;">
+				<img src="items/Pedras.png" width="52" height="90,4">
+				<p class="itemdescricao">Agua das Pedras 1,5€</p>
+				
+			</a>
+
+		</div>
+		<div id="compal">
+			<a id="fotocompal" onclick="addPedidoArray(item_compal)" style="height: 150px;width: 150px;">
+				<img src="items/compal.png" width="70" height="90,4">
+				<p class="itemdescricao">Compal . . . . . 1,5€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+	<div id="bebidacomalcool">
+		<div id="titulobebida">
+			<h3>Bebidas com álcool</h3>
+		</div>
+
+		<div id="closebebidacom"  style="height: 32px;width: 32px" >
+			<a onclick="closebebidacom()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>
+
+		<div id="cerveja">
+			<a id="fotocerveja" onclick="addPedidoArray(item_cerveja)" style="height: 150px;width: 150px;">
+				<img src="items/superbock.png" width="70" height="100,4">
+				<p class="itemdescricao">Cerveja 33cl . . 1,5€</p>
+				
+			</a>
+
+		</div>
+		<div id="imperial" >
+			<a id="fotoimperial" onclick="addPedidoArray(item_imperial)" style="height: 150px;width: 150px;">
+				<img src="items/fino.png" width="110" height="120,4">
+				<p class="itemdescricao">Imperial . . . . . 1€</p>
+				
+			</a>
+
+		</div>
+		<div id="martini" onclick="addPedidoArray(item_martini)" style="height: 150px;width: 150px;">
+			<a id="fotomartini" onclick="">
+				<img src="items/martini.png" width="80" height="100,4">
+				<p class="itemdescricao">Martini . . . . . .4€</p>
+				
+			</a>
+
+		</div>
+		<div id="gin">
+			<a id="fotogin" onclick="addPedidoArray(item_gin)" style="height: 150px;width: 150px;">
+				<img src="items/gin.png" width="80" height="100,4">
+				<p class="itemdescricao">Gin . . . . . . . .4€</p>
+				
+			</a>
+
+		</div>
+		<div id="vodka">
+			<a id="fotovodka" onclick="addPedidoArray(item_vodka)" style="height: 150px;width: 150px;">
+				<img src="items/vodka.png" width="80" height="110,4">
+				<p class="itemdescricao">Vodka . . . . . .4€</p>
+				
+			</a>
+
+		</div>
+		<div id="whisky">
+			<a id="fotowhisky" onclick="addPedidoArray(item_whisky)" style="height: 150px;width: 150px;">
+				<img src="items/whisky.png" width="75" height="90,4">
+				<p class="itemdescricao">Whisky . . . . .4€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+	<div id="cafetaria">
+		<div id="titulobebida">
+			<h3>Cafetaria</h3>
+		</div>
+
+		<div id="closecafetaria"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closecafetaria()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>		
+
+
+
+		<div id="cafe">
+			<a id="fotocafe" onclick="addPedidoArray(item_cafe)" style="height: 150px;width: 150px;">
+				<img src="items/Coffee.png" width="100" height="70,4">
+				<p class="itemdescricao">Café . . . . . . . .0.5€</p>
+				
+			</a>
+
+		</div>
+			<div id="leite">
+			<a id="fotoleite" onclick="addPedidoArray(item_leite)" style="height: 150px;width: 150px;">
+				<img src="items/milk.png" width="100" height="75,4">
+				<p class="itemdescricao">Leite . . . . . . . .1€</p>
+				
+			</a>
+
+		</div>
+			<div id="galao">
+			<a id="fotogalao" onclick="addPedidoArray(item_galao)" style="height: 150px;width: 150px;">
+				<img src="items/galao.png" width="120" height="75,4">
+				<p class="itemdescricao">Galao . . . . . . . .1€</p>
+				
+			</a>
+
+		</div>
+			<div id="capp">
+			<a id="fotocapp" onclick="addPedidoArray(item_capp)" style="height: 150px;width: 150px;">
+				<img src="items/capp.png" width="100" height="75,4">
+				<p class="itemdescricao">Cappuccino . . . . . .1.5€</p>
+				
+			</a>
+
+		</div>
+			<div id="choco">
+			<a id="fotochoco" onclick="addPedidoArray(item_choco)" style="height: 150px;width: 150px;">
+				<img src="items/choco.png" width="100" height="85,4">
+				<p class="itemdescricao">Chocolate Quente . 3€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+	<div id="cocktail">
+		<div id="titulobebida">
+			<h3>Cocktail's</h3>
+		</div>
+
+		<div id="closecock"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closecock()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>	
+
+
+		<div id="mojito" onclick="addPedidoArray(item_mojito)" style="height: 150px;width: 150px;">
+			<a id="fotomojito" onclick="">
+				<img src="items/mojito.png" width="105" height="90,4">
+				<p class="itemdescricao">Mojito . . . . 5€</p>
+				
+			</a>
+
+		</div>
+		<div id="margarita">
+			<a id="fotomarg" onclick="addPedidoArray(item_margarita)" style="height: 150px;width: 150px;">
+				<img src="items/margarita.png" width="100" height="90,4">
+				<p class="itemdescricao">Margarita . . . . 5€</p>
+				
+			</a>
+
+		</div>
+		<div id="long">
+			<a id="fotolong" onclick="addPedidoArray(item_long)" style="height: 150px;width: 150px;">
+				<img src="items/long_island.png" width="90" height="90,4">
+				<p class="itemdescricao">Long Island Ice Tea . 5€</p>
+				
+			</a>
+
+		</div>
+		<div id="caip">
+			<a id="fotocaip" onclick="addPedidoArray(item_caip)" style="height: 150px;width: 150px;">
+				<img src="items/caipirinha.png" width="100" height="90,4">
+				<p class="itemdescricao">Caipirinha . . . . 5€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+
+	<div id="aperitivos">
+		<div id="titulobebida">
+			<h3>Aperitivos</h3>
+		</div>
+
+		<div id="closeaperitivos"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closeaperitivos()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>	
+
+
+
+		<div id="amen">
+			<a id="fotoamend" onclick="addPedidoArray(item_amendoim)" style="height: 150px;width: 150px;">
+				<img src="items/amendoim.png" width="140" height="90,4">
+				<p class="itemdescricao">Amendoins . . . . 1€</p>
+				
+			</a>
+
+		</div>
+		<div id="tre">
+			<a id="fototre" onclick="addPedidoArray(item_tremocos)" style="height: 150px;width: 150px;">
+				<img src="items/tremoco.png" width="140" height="90,4">
+				<p class="itemdescricao">Tremoços . . . . 1€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+	<div id="sandes">
+		<div id="titulobebida">
+			<h3>Sandes e Tostas</h3>
+		</div>
+
+		<div id="closesandes"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closesandes()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>	
+
+
+
+		<div id="pres">
+			<a id="fotopres" onclick="addPedidoArray(item_presunto)" style="height: 150px;width: 150px;">
+				<img src="items/presunto.png" width="140" height="90,4">
+				<p class="itemdescricao">Sandes de presunto . . . 3€</p>
+				
+			</a>
+
+		</div>
+		<div id="tosta">
+			<a id="fototosta" onclick="addPedidoArray(item_tosta)" style="height: 150px;width: 150px;">
+				<img src="items/tosta.png" width="140" height="90,4">
+				<p class="itemdescricao">Tosta Mista . . . 2.5€</p>
+				
+			</a>
+		</div>
+		<div id="torrada">
+			<a id="fototorrada" onclick="addPedidoArray(item_torrada)" style="height: 150px;width: 150px;">
+				<img src="items/torrada.png" width="140" height="90,4">
+				<p class="itemdescricao">Torrada . . . 2€</p>
+				
+			</a>
+
+		</div>
+		<div id="mista">
+			<a id="fotosandes" onclick="addPedidoArray(item_tosta)" style="height: 150px;width: 150px;">
+				<img src="items/sandes.png" width="140" height="90,4">
+				<p class="itemdescricao">Sandes Mista . . . 2€</p>
+				
+			</a>
+
+		</div>
+
+	</div>
+	<div id="snack">
+		<div id="titulobebida">
+			<h3>Snack</h3>
+		</div>
+
+		<div id="closesnack"  style="height: 32px;width: 32px; z-index: 10" >
+			<a onclick="closesnack()">
+				<img src="icons/delete (2).png">
+			</a>
+		</div>	
+
+
+		<div id="kinder">
+			<a id="fotokinder" onclick="addPedidoArray(item_kinder)" style="height: 150px;width: 150px;">
+				<img src="items/kinder.png" width="140" height="90,4">
+				<p class="itemdescricao">Kinder Bueno . . . 1€</p>
+				
+			</a>
+
+		</div>
+		<div id="kitkat">
+			<a id="fotokikat" onclick="addPedidoArray(item_kitkat)" style="height: 150px;width: 150px;">
+				<img src="items/kitkat.png" width="140" height="90,4">
+				<p class="itemdescricao">Kit Kat . . . 1€</p>
+				
+			</a>
+
+		</div>
+		<div id="lays">
+			<a id="fotolays" onclick="addPedidoArray(item_batata)" style="height: 150px;width: 150px;">
+				<img src="items/lays.png" width="80" height="100,4">
+				<p class="itemdescricao">Batata Frita . . . 1€</p>
+				
+			</a>
+
+		</div>
+	</div>			
+
+	<div id="botaoempregado" style="height: 90px;width: 100px;" >
+		<a onclick="empregado()">
+			<img src="icons/drink.png">
+		</a>
+		<p class="itemdescricao">Empregado</p>
+	</div>
+
+	<div id="botaodadosdeconta" style="height: 90px;width: 100px;">
+		<a onclick="dadosdeconta()">
+			<img src="icons/person.png">
+		</a>
+		<p class="itemdescricao">Dados de conta</p>
+	</div>	
+
+	<div id="botaopedido" style="height: 90px;width: 100px;">
+		<a onclick="pedido()">
+			<img src="icons/food (3).png">
+		</a>
+		<p class="itemdescricao">Pedido</p>
+	</div>		
+
+	<div id="botaoajuda" style="height: 90px;width: 100px; z-index: 10">
+		<a onclick="ajuda()">
+			<img src="icons/signs.png" height="45px" width="45px">
+		</a>
+		<p class="itemdescricao">Ajuda</p>
+	</div>		
+
+	<div id="botaosair" style="height: 90px;width: 100px;">
+		<a onclick="sair()">
+			<img src="icons/exit final.png">
+		</a>
+		<p class="itemdescricao">Sair</p>
+	</div>	
+
+	<div id="botaohistorico2" style="height: 90px;width: 100px;">
+		<a onclick="historico()">
+			<img src="icons/clock (1).png">
+		</a>
+		<p class="itemdescricao">Histórico</p>
+	</div>	
+
+	<div id="botaofavoritos" style="height: 90px;width: 100px;">
+		<a onclick="favoritos()">
+			<img src="icons/favorite.png">
+		</a>
+		<p class="itemdescricao">Favoritos</p>
+	</div>	
+
+	<div id="botaolimite" style="height: 90px;width: 100px;">
+		<a onclick="limite()">
+			<img src="icons/money.png">
+		</a>
+		<p class="itemdescricao">Limite</p>
+	</div>	
+
+	<div id="botaocomida" style="height: 90px;width: 100px;">
+		<a onclick="comida()">
+			<img src="icons/food.png">
+		</a>
+		<p class="itemdescricao">Comida</p>
+	</div>	
+
+	<div id="botaobebida" style="height: 90px;width: 100px;">
+		<a onclick="bebida()">
+			<img src="icons/food (2).png">
+		</a>
+		<p class="itemdescricao">Bebida</p>
+	</div>	
+
+	<div id="botaolimpar" style="height: 90px;width: 100px;">
+		<a onclick="limpar()">
+			<img src="icons/tool.png">
+		</a>
+		<p class="itemdescricao">Limpar a mesa</p>
+	</div>	
+
+	<div id="botaofalar" style="height: 90px;width: 100px;">
+		<a onclick="falar()">
+			<img src="icons/speak.png">
+		</a>
+		<p class="itemdescricao">Falar pessoalmente</p>
+	</div>	
+
+
+<!-- +++++++++++++++++++ COLOR +++++++++++++++++++ -->
+
+
+	<div id="botaoempregadocor" style="height: 90px;width: 100px;" >
+		<a onclick="fechacor()">
+			<img src="icons/drink color.png">
+		</a>
+		<p class="itemdescricao">Empregado</p>
+	</div>
+
+	<div id="botaodadosdecontacor" style="height: 90px;width: 100px;">
+		<a onclick="fechacor()">
+			<img src="icons/person color.png">
+		</a>
+		<p class="itemdescricao">Dados de conta</p>
+	</div>	
+
+	<div id="botaopedidocor" style="height: 90px;width: 100px;">
+		<a onclick="fechacor()">
+			<img src="icons/food color.png">
+		</a>
+		<p class="itemdescricao">Pedido</p>
+	</div>		
+
+	<div id="botaoajudacor" style="height: 90px;width: 100px;">
+		<a>
+			<img src="icons/signs color.png">
+		</a>
+		<p class="itemdescricao">Ajuda</p>
+	</div>		
+
+	<div id="botaosaircor" style="height: 90px;width: 100px;">
+		<a>
+			<img src="icons/exit color.png">
+		</a>
+		<p class="itemdescricao">Sair</p>
+	</div>
+
+</div>
+
+</body>
+<script src="https://code.jquery.com/jquery-1.12.0.min.js"></script>
+<script src="https://code.jquery.com/jquery-migrate-1.2.1.min.js"></script>
+<script type="text/javascript">
+
+$(document).ready(function() {
+	
+})
+
+var despesa_total = []; // arraylist dos items dos pedidos finalizados
+var pedido_actual = []; // arraylist dos items presentes no pedido actual
+
+var valorlimite=0;
+var limitefinal=0;
+
+var obj_copy;
+var confirmation=0;
+var confirmation_limite=0;
+
+var item_cerveja = {descricao:"Cerveja 33cl", quantidade:1, preco: 1.5, div: null};
+var item_imperial = {descricao:"Imperial", quantidade:1, preco: 1, div: null};
+var item_martini = {descricao:"Martini", quantidade:1, preco: 4, div: null};
+var item_vodka = {descricao:"Vodka", quantidade:1, preco: 4, div: null};
+var item_gin = {descricao:"Gin", quantidade:1, preco: 4, div: null};
+var item_whisky = {descricao:"Whisky", quantidade:1, preco: 4, div: null};
+
+var item_agua = {descricao:"Água", quantidade:1, preco: 1, div:"alteraagua"};
+var item_cola = {descricao:"Coca-Cola", quantidade:1, preco: 1.5, div:"alteracola"};
+var item_icetea = {descricao:"IcedTea", quantidade:1, preco: 1.5, div:"alteraice"};
+var item_laranja = {descricao:"Sumo de Laranja", quantidade:1, preco: 1.5, div: null};
+var item_pedras = {descricao:"Água das Pedras", quantidade:1, preco: 1.5, div: null};
+var item_compal = {descricao:"Compal", quantidade:1, preco: 1.5, div: null};
+
+var item_cafe = {descricao:"Café", quantidade:1, preco: 0.5, div:"alteracafe"};
+var item_leite = {descricao:"Copo de Leite", quantidade:1, preco: 1, div:"alteraleite"};
+var item_galao = {descricao:"Galão", quantidade:1, preco: 1, div: null};
+var item_capp = {descricao:"Cappuccino", quantidade:1, preco:1.5, div: null};
+var item_choco = {descricao:"Chocolate Quente", quantidade:1, preco:3, div: null};
+
+var item_mojito = {descricao:"Mojito", quantidade:1, preco:5, div: null};
+var item_margarita = {descricao:"Margarita", quantidade:1, preco:5, div: null};
+var item_long = {descricao:"Long Island Iced Tea", quantidade:1, preco:5, div: null};
+var item_caip = {descricao:"Caipirinha", quantidade:1, preco:5, div: null};
+
+var item_amendoim = {descricao:"Amendoins", quantidade:1, preco:1, div: null};
+var item_tremoco = {descricao:"Tremoços", quantidade:1, preco:1, div: null};
+var item_presunto = {descricao:"Sandes de Presunto", quantidade:1, preco:3, div:"alterapresunto"};
+var item_tosta = {descricao:"Tosta Mista", quantidade:1, preco:2.5, div:"alteratosta"};
+var item_torrada = {descricao:"Torrada", quantidade:1, preco:2, div: null};
+var item_mista = {descricao:"Sandes Mista", quantidade:1, preco:2, div: "alteramista"};
+
+var item_kinder = {descricao:"Kinder Bueno", quantidade:1, preco:1, div: null};
+var item_kitkat = {descricao:"Kit Kat", quantidade:1, preco:1, div: null};
+var item_batata = {descricao:"Batata Frita", quantidade:1, preco:1, div: null};
+
+var items = [];
+items.push(item_cerveja);
+items.push(item_imperial); 
+items.push(item_martini); 
+items.push(item_vodka);
+items.push(item_gin);
+items.push(item_whisky);
+items.push(item_agua); 
+items.push(item_cola); 
+items.push(item_laranja);
+items.push(item_pedras);
+items.push(item_compal);
+items.push(item_cafe); 
+items.push(item_leite); 
+items.push(item_galao); 
+items.push(item_capp); 
+items.push(item_choco);
+items.push(item_mojito); 
+items.push(item_margarita);
+items.push(item_long);
+items.push(item_caip);
+items.push(item_amendoim); 
+items.push(item_tremoco);
+items.push(item_presunto); 
+items.push(item_tosta); 
+items.push(item_torrada); 
+items.push(item_mista);
+items.push(item_kinder);
+items.push(item_kitkat); 
+items.push(item_batata);
+
+
+function mais50(){
+	valorlimite=valorlimite+50;
+	document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+
+}
+
+
+
+function mais10(){
+	valorlimite=valorlimite+10;
+	document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+
+}
+
+function mais1(){
+	valorlimite=valorlimite+1;
+	document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+
+}
+
+function menos50(){
+	if(valorlimite-50>=0){
+		valorlimite=valorlimite-50;
+		document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+	}
+
+}
+
+
+function menos10(){
+	if(valorlimite-10>=0){
+		valorlimite=valorlimite-10;
+		document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+	}
+
+}
+
+function menos1(){
+	if(valorlimite-1>=0){
+		valorlimite=valorlimite-1;
+		document.getElementById("limitetexto").innerHTML="Limite: " + valorlimite + "€";
+	}
+
+}
+
+function getValorDespesaTotal(){
+	var valor = 0;
+
+	for (var i = 0; i < despesa_total.length; i++) {
+	  valor += despesa_total[i].preco;
+	}
+
+	return valor;
+
+}
+
+function getValorPedidoActual(){
+	var valor = 0;
+
+	for (var i = 0; i < pedido_actual.length; i++) {
+	  valor += pedido_actual[i].preco;
+	}
+
+	return valor;
+
+}
+
+function getItemByDesc(desc){
+	var i;
+
+	for(i=0; i < items.length; i++){
+		if(desc == items[i].descricao){
+			break;
+		}
+	}
+
+	return items[i];
+}
+
+function addPedidoArray(item_desc){
+	pedido_actual.push(item_desc);
+	addRow(item_desc,1);
+
+}
+
+
+function addRow(item_desc,tab) {
+
+	var myItem = item_desc;
+	var present = 0;
+
+	var table;
+	if(tab == 1){
+    table = document.getElementById("tabelapedido");
+	}
+
+	if(tab == 2){
+	table = document.getElementById("tabeladetalhes");	
+	}
+
+    var rowCount = table.rows.length;
+    var totalIndex = rowCount;
+    rowCount--;
+    var row;
+
+	var index
+    for(index = 1; index < rowCount; index++){
+
+    	if(myItem.descricao == table.rows[index].cells[1].innerHTML){
+    		present = 1;
+    		break;
+    	}
+
+    }
+
+    var showeditbutton;
+    if(tab == 1){
+	    if(myItem.div == null){
+	    	showeditbutton = '';
+	    } else {
+	    		
+	    	showeditbutton = '<input id="editarbotao" type="button" value ="Modificar" style="height: 30px;width: 80px;" onClick="Javacsript:showeditmenu(this)">';
+	    }
+	}
+
+    if(present == 0){
+    row = table.insertRow(rowCount);
+	    if(tab == 1){	
+		    row.insertCell(0).innerHTML= '<input type="image" name="fav" src="icons/favorite.png" width="20" height="20" onClick="Javacsript:addFav(this)">';
+		    row.insertCell(1).innerHTML= myItem.descricao;
+		    row.insertCell(2).innerHTML= myItem.quantidade;
+		    row.insertCell(3).innerHTML= myItem.preco + " €";
+		    row.insertCell(4).innerHTML= '<input type="image" name="plus" src="icons/plus.png" width="20" height="20" onClick="Javacsript:incItem(this)">';
+		    row.insertCell(5).innerHTML= '<input type="image" name="minus" src="icons/minus.png" width="20" height="20" onClick="Javacsript:decItem(this)">';
+		    row.insertCell(6).innerHTML= showeditbutton;
+		}
+		if(tab == 2){	
+		    row.insertCell(0).innerHTML= '<input type="image" name="fav" src="icons/favorite.png" width="20" height="20" onClick="Javacsript:addFav(this)">';
+		    row.insertCell(1).innerHTML= myItem.descricao;
+		    row.insertCell(2).innerHTML= myItem.quantidade;
+		    row.insertCell(3).innerHTML= myItem.preco + " €";
+		    row.insertCell(4).innerHTML= " ";
+		    row.insertCell(5).innerHTML= " ";
+		    row.insertCell(6).innerHTML= " ";
+		}
+
+	}
+
+	if(present == 1){
+		table.rows[index].cells[2].innerHTML++;
+	}
+
+
+	if(tab == 1){
+		document.getElementById("NrItemsTab").innerHTML = "<b>(" + pedido_actual.length + ")</b>";
+		document.getElementById("TotalTab").innerHTML = "<b>Total: " + getValorPedidoActual() + "€</b>";
+	}
+
+	if(tab == 2){
+		document.getElementById("NrDetalhes").innerHTML = "<b>(" + despesa_total.length + ")</b>";
+		document.getElementById("totalDetalhes").innerHTML = "<b>Total: " + getValorDespesaTotal() + "€</b>";
+	}
+
+
+	present = 0;
+
+}
+
+
+function addAgainRow(obj){
+
+	var index = obj.parentNode.parentNode.rowIndex;
+	var fav = document.getElementById("tabelafavoritos");
+
+	var item;
+	item = getItemByDesc(fav.rows[index].cells[1].innerHTML);
+	
+	addPedidoArray(item);
+
+}
+
+function addHistRow(obj){
+
+	var index = obj.parentNode.parentNode.rowIndex;
+	var hist = document.getElementById("historico");
+
+	var item;
+	item = getItemByDesc(hist.rows[index].cells[1].innerHTML);
+	
+	addPedidoArray(item);
+
+}
+
+function addFav(obj){
+
+	var index = obj.parentNode.parentNode.rowIndex;
+	var table = document.getElementById("tabelapedido");
+
+	var fav = document.getElementById("tabelafavoritos");
+
+    var favCount = fav.rows.length;
+    var favrow = fav.insertRow(favCount);
+
+
+    favrow.insertCell(0).innerHTML= '<input type="image" name="delete" src="icons/delete.png" width="20" height="20" onClick="deleteRow(this, tabelafavoritos)">';
+    favrow.insertCell(1).innerHTML= table.rows[index].cells[1].innerHTML;
+    favrow.insertCell(2).innerHTML= table.rows[index].cells[3].innerHTML;
+    favrow.insertCell(3).innerHTML= '<input type="image" name="plus" src="icons/plus.png" width="20" height="20" onClick="addAgainRow(this)">';
+}
+
+
+
+function incItem(obj){
+
+
+	var index = obj.parentNode.parentNode.rowIndex;
+    var table = document.getElementById("tabelapedido");
+
+	item = getItemByDesc(table.rows[index].cells[1].innerHTML);
+
+	addPedidoArray(item);
+
+}
+
+function decItem(obj){
+
+
+	var index = obj.parentNode.parentNode.rowIndex;
+    var table = document.getElementById("tabelapedido");
+
+	 table.rows[index].cells[2].innerHTML--;
+
+	 if(table.rows[index].cells[2].innerHTML==0){
+	 	deleteRow(obj, tabelapedido);
+	 }
+
+	var item = getItemByDesc(table.rows[index].cells[1].innerHTML);
+
+	var index_array = pedido_actual.indexOf(item);
+
+	if(index > -1){
+		pedido_actual.splice(index_array, 1);
+	} 
+
+	document.getElementById("NrItemsTab").innerHTML = "<b>(" + pedido_actual.length + ")</b>";
+	document.getElementById("TotalTab").innerHTML = "<b>Total: " + getValorPedidoActual() + "€</b>";	 
+
+}
+
+
+function deleteRow(obj, tab) {
+     
+    var index = obj.parentNode.parentNode.rowIndex;
+    var table = document.getElementById("tabelapedido");
+    tab.deleteRow(index);
+   
+}
+
+function clearHist(obj) {
+     
+    var i;
+    var table = document.getElementById("historico");
+    var index = obj.parentNode.parentNode.rowIndex;
+
+    index--;
+    while(index > 1){
+    	table.deleteRow(index);
+    	index--;
+    }
+    
+   
+}
+
+function aceitaPedido(){
+	confirmation = 1;
+	confirmPedido(obj_copy);
+}
+
+function rejeitaPedido(){
+	confirmation = -1;
+	confirmPedido(obj_copy);
+}
+
+function aceitaLimite(){
+	confirmation_limite = 1;
+	confirmPedido(obj_copy);
+}
+
+function rejeitaLimite(){
+	confirmation_limite = -1;
+	confirmPedido(obj_copy);
+}
+
+function confirmPedido(obj) {
+     
+    var table = document.getElementById("tabelapedido");
+    var index = obj.parentNode.parentNode.rowIndex;
+    var hist = document.getElementById("historico");
+    
+    var today = new Date();
+    var dd = today.getDate();
+    var mm = today.getMonth()+1; //January is 0!
+    var yyyy = today.getFullYear();
+
+    if(pedido_actual.length == 0){
+    	return;
+    }
+
+    obj_copy = obj;
+    if(confirmation == 0) {//we want it to match
+    	document.getElementById("confirmapedido").style.display='block';
+        setTimeout(confirmPedido, 50);//wait 50 millisecnds then recheck
+        return;
+    }
+
+
+	if(confirmation == -1){
+		document.getElementById("confirmapedido").style.display='none';
+		confirmation = 0;
+		confirmation_limite = 0;
+		return;
+	}
+
+	if(confirmation == 1){
+		document.getElementById("confirmapedido").style.display='none';
+	}
+
+	if(limitefinal != 0){ //only if limit is defined
+	    if (getValorDespesaTotal() + getValorPedidoActual() > limitefinal) {
+	    	document.getElementById("confirmapedidolimite").style.display='block';
+
+
+		    if(confirmation_limite == 0){
+		    	setTimeout(confirmPedido,50);
+		    	return;
+		    }
+
+		    if(confirmation_limite == -1){
+		    	document.getElementById("confirmapedidolimite").style.display='none';
+		    	confirmation_limite = 0;
+		    	confirmation = 0;
+		    	return;
+		    }
+
+		    if(confirmation_limite == 1){
+		    	document.getElementById("confirmapedidolimite").style.display='none';
+		    }
+
+		}
+	
+		document.getElementById("confirmapedidolimite").style.display='none';
+	}
+
+	var temp;
+	while(pedido_actual.length > 0){
+		temp = pedido_actual.pop();
+		despesa_total.push(temp);
+		addRow(temp,2);
+	}
+
+
+	table.rows[index].cells[2].innerHTML = "<b>(" + pedido_actual.length + ")</b>";
+	table.rows[index].cells[3].innerHTML = "<b>Total: " + getValorPedidoActual() + "€</b>";
+
+	document.getElementById("despesavar").innerHTML = "<b>Despesa: " + getValorDespesaTotal() + " €</b>";
+    
+    
+	if(dd<10){
+        dd='0'+dd
+    } 
+    if(mm<10){
+        mm='0'+mm
+    } 
+    var today = dd+'/'+mm+'/'+yyyy;
+    
+    index--;
+    while(index > 1){
+    
+    var histCount = hist.rows.length;
+    histCount--;
+    var histrow = hist.insertRow(histCount);
+    
+	histrow.insertCell(0).innerHTML= '<input type="image" name="plus" src="icons/plus.png" width="20" height="20" onClick="Javacsript:addHistRow(this)">';
+    histrow.insertCell(1).innerHTML= table.rows[index].cells[1].innerHTML;
+    histrow.insertCell(2).innerHTML= today;
+    histrow.insertCell(3).innerHTML= table.rows[index].cells[3].innerHTML;	    	
+    	
+    table.deleteRow(index);
+    index--;
+    histrow--;
+    }
+
+    confirmation = 0;
+    confirmation_limite = 0;
+}
+
+function limpaDetalhes(){
+
+	table = document.getElementById("tabeladetalhes");
+
+	var rowCount = table.rows.length;
+   
+    rowCount--;
+    rowCount--;
+    while(rowCount > 1){
+    	table.deleteRow(rowCount);
+    	rowCount--;
+    }
+
+
+    while(despesa_total.length > 0){
+		despesa_total.pop();
+	}
+
+	document.getElementById("NrDetalhes").innerHTML = "<b>(" + despesa_total.length + ")</b>";
+	document.getElementById("totalDetalhes").innerHTML = "<b>Total: " + getValorDespesaTotal() + "€</b>";
+	document.getElementById("despesavar").innerHTML = "<b>Despesa: " + getValorDespesaTotal() + " €</b>";
+
+}
+
+function showeditmenu(obj){
+
+	var index = obj.parentNode.parentNode.rowIndex;
+	var table = document.getElementById("tabelapedido");
+
+	var item_desc;;
+	var item_edit_div;
+	item_desc = table.rows[index].cells[1].innerHTML;
+
+	var i;
+	for(i = 0; i < items.length; i++){
+		if(item_desc == items[i].descricao){
+			item_edit_div = items[i].div;
+		}
+	}
+
+	document.getElementById(item_edit_div.toString()).style.display='block';
+}
+
+function closelimite(){
+	document.getElementById("limite").style.display='none';
+}
+
+function closebebidasem(){
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+}
+
+function closebebidacom(){
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+}
+
+function closecafetaria(){
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+}
+function closecock(){
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+}
+
+function closeaperitivos(){
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+}
+
+function closesnack(){
+	document.getElementById("snack").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+}
+
+function closesandes(){
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+}
+
+
+
+function fechaDetalhes(){
+	document.getElementById("detalhes").style.display='none';
+}
+
+
+function fechaajudapedido(){
+	document.getElementById("ajudapedido").style.display='none';
+}
+
+function fechaajudafavoritos(){
+	document.getElementById("ajudafav").style.display='none';
+}
+
+function fechaajudahist(){
+	document.getElementById("ajudahist").style.display='none';
+}
+
+function fechaajudalimite(){
+	document.getElementById("ajudalimite").style.display='none';
+}
+
+function fechaajudaprincipal(){
+	document.getElementById("ajudaprincipal").style.display='none';
+}
+
+function closeeditcola(){
+	document.getElementById("alteracola").style.display='none';
+}
+function closeedittosta(){
+	document.getElementById("alteratosta").style.display='none';
+}
+function closeeditpresunto(){
+	document.getElementById("alterapresunto").style.display='none';
+}
+function closeeditleite(){
+	document.getElementById("alteraleite").style.display='none';
+}
+function closeeditagua(){
+	document.getElementById("alteraagua").style.display='none';
+}
+function closeeditice(){
+	document.getElementById("alteraice").style.display='none';
+}
+function closeeditcafe(){
+	document.getElementById("alteracafe").style.display='none';
+}
+
+function confirmacola(){
+	document.getElementById("alteracola").style.display='none';
+}
+function confirmatosta(){
+	document.getElementById("alteratosta").style.display='none';
+}
+function confirmapresunto(){
+	document.getElementById("alterapresunto").style.display='none';
+}
+function confirmaleite(){
+	document.getElementById("alteraleite").style.display='none';
+}
+function confirmaagua(){
+	document.getElementById("alteraagua").style.display='none';
+}
+function confirmaice(){
+	document.getElementById("alteraice").style.display='none';
+}
+function confirmacafe(){
+	document.getElementById("alteracafe").style.display='none';
+}
+
+
+function closehistorico(){
+	document.getElementById("table").style.display='none';
+}
+
+function closefavoritos(){
+	document.getElementById("favoritos").style.display='none';
+}
+
+
+function closemodopagamento(){
+	document.getElementById("modopagamento").style.display='none';
+
+}
+
+
+
+function ajuda(){
+	if(	document.getElementById("menulateralbebida").style.display=='block'||document.getElementById("menulateralcomida").style.display=='block'||document.getElementById("bebidasemalcool").style.display=='block'||document.getElementById("bebidacomalcool").style.display=='block'){
+			document.getElementById("ajudapedido").style.display='block';
+	}
+
+	if(document.getElementById("favoritos").style.display=='block'){
+		document.getElementById("ajudafav").style.display='block';
+	}
+
+	if(document.getElementById("table").style.display=='block'){
+		document.getElementById("ajudahist").style.display='block';
+	}
+
+	if (document.getElementById("limite").style.display=='block') {
+		document.getElementById("ajudalimite").style.display='block';
+	}
+
+	if(document.getElementById("menulateralbebida").style.display=='none'&& document.getElementById("menulateralcomida").style.display=='none'&& document.getElementById("favoritos").style.display=='none'&& document.getElementById("table").style.display=='none'&& document.getElementById("limite").style.display=='none'){
+		document.getElementById("ajudaprincipal").style.display='block';
+	}
+
+}
+
+function paga(){
+	document.getElementById("pagamentofinal").style.display='block';
+	document.getElementById("modopagamento").style.display='none';
+}
+
+
+function fechapagamentofinal(){
+
+	document.getElementById("pagamentofinal").style.display='none';
+	limpaDetalhes();
+}
+
+
+function pagamento(){
+	if(getValorDespesaTotal()>0){
+		document.getElementById("modopagamento").style.display='block';
+		document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	}
+}
+
+
+function apareceDetalhes(){
+	document.getElementById("detalhes").style.display='block';
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+}
+
+
+
+function apaga(){           /* --------------------- APAGA --------------------- */
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+}
+
+
+function simlimite(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+	limitefinal=valorlimite;
+	document.getElementById("limitevar").innerHTML= "<b>Limite: " + limitefinal + "€</b>";
+}
+
+
+
+
+function empregado(){
+	document.getElementById("botaoempregado").style.display='none';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='block';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='block';
+	document.getElementById("botaofalar").style.display='block';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+	document.getElementById("ajudapedido").style.display='none';
+	document.getElementById("ajudafav").style.display='none';
+	document.getElementById("ajudahist").style.display='none';
+	document.getElementById("ajudalimite").style.display='none';
+	document.getElementById("ajudaprincipal").style.display='none';
+}
+
+function dadosdeconta(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='none';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='block';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='block';
+	document.getElementById("botaofavoritos").style.display='block';
+	document.getElementById("botaolimite").style.display='block';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+	document.getElementById("ajudapedido").style.display='none';
+	document.getElementById("ajudafav").style.display='none';
+	document.getElementById("ajudahist").style.display='none';
+	document.getElementById("ajudalimite").style.display='none';
+	document.getElementById("ajudaprincipal").style.display='none';
+}
+
+function pedido(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='none';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='block';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='block';
+	document.getElementById("botaobebida").style.display='block';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+	document.getElementById("ajudapedido").style.display='none';
+	document.getElementById("ajudafav").style.display='none';
+	document.getElementById("ajudahist").style.display='none';
+	document.getElementById("ajudalimite").style.display='none';
+	document.getElementById("ajudaprincipal").style.display='none';
+}
+
+
+function naopodesairok(){
+	document.getElementById("naopodesair").style.display='none';
+}
+
+
+function naosai(){
+	document.getElementById("podesair").style.display='none';
+}
+
+
+function sair(){
+
+	if(getValorDespesaTotal()==0){
+		document.getElementById("podesair").style.display='block';
+	}
+
+	else{
+		document.getElementById("naopodesair").style.display='block';
+	}
+
+}
+
+function historico(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='block';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function favoritos(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='block';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+function limite(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='block';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+
+function naolimite(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='block';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+	
+}
+
+
+function limiteok(){
+
+if(valorlimite>0 && valorlimite!=limitefinal){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='block';
+
+	document.getElementById("textolimiteconfirmação").innerHTML= "Tem a certeza que pretende atribuir o limite de " + valorlimite + "€ à sua despesa?"
+
+}
+}
+
+
+
+function comida(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='block';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function apareceaperitivos(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='block';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='block';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+}
+
+function aparecesandes(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='block';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='block';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function aparecesnacks(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='block';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='block';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function bebida(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='block';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function aparecebebidascom(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='block';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='block';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function aparecebebidasem(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='block';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='block';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function aparececafetaria(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='block';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='block';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function aparececocktail(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='block';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='block';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+}
+
+function limpar(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='block';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+
+}
+
+function falar(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='block';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+function fechalimpar(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+
+function fechafalar(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+function fechacor(){
+	document.getElementById("botaoempregado").style.display='block';
+	document.getElementById("botaodadosdeconta").style.display='block';
+	document.getElementById("botaopedido").style.display='block';
+	document.getElementById("botaoajuda").style.display='block';
+	document.getElementById("botaosair").style.display='block';
+	document.getElementById("botaoempregadocor").style.display='none';
+	document.getElementById("botaodadosdecontacor").style.display='none';
+	document.getElementById("botaopedidocor").style.display='none';
+	document.getElementById("botaoajudacor").style.display='none';
+	document.getElementById("botaosaircor").style.display='none';
+	document.getElementById("botaolimpar").style.display='none';
+	document.getElementById("botaofalar").style.display='none';
+	document.getElementById("botaohistorico2").style.display='none';
+	document.getElementById("botaofavoritos").style.display='none';
+	document.getElementById("botaolimite").style.display='none';
+	document.getElementById("botaocomida").style.display='none';
+	document.getElementById("botaobebida").style.display='none';
+	document.getElementById("table").style.display='none';
+	document.getElementById("menulateralbebida").style.display='none';
+	document.getElementById("menulateralcomida").style.display='none';
+	document.getElementById("bebidasemalcool").style.display='none';
+	document.getElementById("bebidacomalcool").style.display='none';
+	document.getElementById("cafetaria").style.display='none';
+	document.getElementById("cocktail").style.display='none';
+	document.getElementById("sandes").style.display='none';
+	document.getElementById("aperitivos").style.display='none';
+	document.getElementById("snack").style.display='none';
+	document.getElementById("limpar").style.display='none';
+	document.getElementById("falar").style.display='none';
+	document.getElementById("limite").style.display='none';
+	document.getElementById("favoritos").style.display='none';
+	document.getElementById("confirmalimite").style.display='none';
+
+
+}
+
+
+</script>
+
+
+</html>

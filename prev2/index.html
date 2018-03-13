@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<meta charset = "utf-8">
+<html>
+<head>
+<title>IPM</title>
+<link rel="stylesheet" href="style.css">
+
+</head>
+<body style="font-family:calibri"; text-align: center>
+
+<div id="border">
+	<div id="barista">	
+    	<img src="barista.png" alt="bar" >	
+  		<h4 class="itemdescricao">O seu bar interativo</h4>
+	</div>
+	<div id="nav-wrapper">
+
+		<a class="botao" onclick="inicial();">Entrar na minha conta</a>
+		<a class="botao" onclick="inicial();">Criar uma conta nova</a>
+		<a href="menuprincipal.html" class="botao">Entrar como anónimo</a>
+		<a class="botao" onclick="inicial();">Ajuda</a>
+
+	</div>
+
+	<div id="funcionalidadediv">
+		<p id="funcionalidade" >Funcionalidade não implementada</p>
+	</div>
+
+</div>
+
+</body>
+
+<script type="text/javascript">
+	
+function inicial(){
+	 var paragrafo = document.getElementById("funcionalidade");
+
+	 paragrafo.style.display='block';
+	 
+}
+
+
+</script>
+
+
+</html>
